@@ -3,16 +3,12 @@ import { Star } from 'lucide-react';
 import CTAButton from './CTAButton';
 
 const CallToAction = () => {
-  const handleWhatsAppRedirect = (type: 'agency' | 'business') => {
-    const phoneNumber = '971503210098'; // Dubai WhatsApp number with country code
-    const messages = {
-      agency: "Hello! I'm interested in participating in the Topsdraw Apex Summit 2025 as an agency. I'd like to learn more about the nomination process and program access.",
-      business: "Hello! I'm a business interested in the Topsdraw Apex Summit 2025. I'd like to stay updated about the event and potential opportunities."
+  const handleFormRedirect = (type: 'agency' | 'business') => {
+    const urls = {
+      agency: 'https://forms.topsdraw.com/Topsdraw/form/ExpressYourInterestForAgencies1/formperma/SzmsY0KAjZKCC-xxTpvQed2gDwTwnfoTB-yxkllzsUA',
+      business: 'https://forms.topsdraw.com/Topsdraw/form/ExpressYourInterestForClients/formperma/Ladb-PM8-1vWSFifToJB7AyYRAqavOh3TqEDIkw-SSI',
     };
-    
-    const encodedMessage = encodeURIComponent(messages[type]);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(urls[type], '_blank');
   };
 
   return (
@@ -27,12 +23,12 @@ const CallToAction = () => {
         <CTAButton 
           text="I'm an Agency – Express Interest" 
           variant="purple"
-          onClick={() => handleWhatsAppRedirect('agency')}
+          onClick={() => handleFormRedirect('agency')}
         />
         <CTAButton 
           text="I'm a Business – Keep Me in the Loop" 
           variant="red"
-          onClick={() => handleWhatsAppRedirect('business')}
+          onClick={() => handleFormRedirect('business')}
         />
       </div>
     </div>
